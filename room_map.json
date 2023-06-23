@@ -4,7 +4,7 @@
     {
         "double_door_amount": [1, 4],
         "shop_type": ["weapons", "heal", "trinkets", "upgrade", "abilities"],
-        "shop_room_size": [[16, 8], [32, 8], [16, 16]]
+        "shop_room_size": [[16, 8], [8, 8], [16, 16]]
     },
 
     "boss_room":
