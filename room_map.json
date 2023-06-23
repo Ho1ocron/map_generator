@@ -1,14 +1,23 @@
 {
-    "map_size": "256x256",
+    "map_size": [128, 128],
     "room_shop": 
     {
         "double_door_amount": [1, 4],
         "shop_type": ["weapons", "heal", "trinkets", "upgrade", "abilities"],
-        "shop_room_size": ["16x8", "32x8", "16x16"]
+        "shop_room_size": [[16, 8], [32, 8], [16, 16]]
     },
+
     "boss_room":
     {
+        "boss_room_size": "48x32",
         "double_door_amount": [1, 4],
         "boss": ["reaper", "snow_golem"]
+    },
+
+    "fight_room":
+    {
+        "fight_room_size": "32x16",
+        "enemy_amount": [1, 40],
+        "enemy_type": ["knight", "zombie", "elite_knight", "elite_zombie"]
     }
 }

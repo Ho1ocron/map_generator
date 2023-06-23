@@ -1,13 +1,14 @@
 import pygame
 import random
+import json
 import sys
 
 
 class shop_room(pygame.sprite.Sprite):
-     def __init__(self):
-          self.rand_coords = line.line_coords()[random.randint(0, len(line.line_coords())+1)]
+     def __init__(self, size):
+          self.rand_coords = line.line_coords()[random.randint(0, len(line.line_coords())-1)]
           super().__init__(all_sprites)
-          self.image = pygame.Surface((16, 8))
+          self.image = pygame.Surface(size)
           self.image.fill((102, 178, 255))
           self.rect = pygame.Rect(self.rand_coords[0], self.rand_coords[1], 16, 8)
           pygame.draw.rect(self.image, (102, 178, 255), self.rect, 1)
@@ -52,18 +53,42 @@ def start(screen):
         pygame.display.flip()
 
 
+class Json_data:
+    def __init__(self):
+        with open("room_map.json") as room_map_json:
+            self.data = json.load(room_map_json)
+    
+    def map_data(self):
+        map_size = self.data["map_size"]
+        return map_size
+
+    def shop_data(self):
+        s = random.randint(0, len(self.data["room_shop"]["shop_room_size"]))
+        print(s)
+        shop_size = self.data["room_shop"]["shop_room_size"][s-1]
+        print(f"shop size is {shop_size}")
+        return shop_size
+
+
+json_data = Json_data()
+
+
 all_sprites = pygame.sprite.Group()
 shop_room_sprite = pygame.sprite.Group()
 
 pygame.init()
-size = (128, 128)
+size = json_data.map_data()
 WHITE = (255,255,255)
 screen = pygame.display.set_mode(size)
 
-shop_room()
+
+shop_room(json_data.shop_data())
+shop_room(json_data.shop_data())
+shop_room(json_data.shop_data())
 line.line_coords()
 print(line.line_coords())
 print(len(line.line_coords()))
+
 
 if __name__ == "__main__":
      start(screen)
