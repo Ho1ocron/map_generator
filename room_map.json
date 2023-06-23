@@ -1,0 +1,14 @@
+{
+    "map_size": "256x256",
+    "room_shop": 
+    {
+        "double_door_amount": [1, 4],
+        "shop_type": ["weapons", "heal", "trinkets", "upgrade", "abilities"],
+        "shop_room_size": ["16x8", "32x8", "16x16"]
+    },
+    "boss_room":
+    {
+        "double_door_amount": [1, 4],
+        "boss": ["reaper", "snow_golem"]
+    }
+}
